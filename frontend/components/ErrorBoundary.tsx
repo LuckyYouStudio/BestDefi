@@ -22,11 +22,17 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.warn('ErrorBoundary caught an error:', error, errorInfo)
     
-    // 如果是扩展冲突错误，忽略它
+    // 如果是扩展冲突错误，忽略它并重置状态
     if (error.message.includes('Cannot redefine property') || 
         error.message.includes('conflux') ||
         error.stack?.includes('chrome-extension://')) {
-      this.setState({ hasError: false })
+      
+      // 延迟重置，给用户看到警告
+      setTimeout(() => {
+        this.setState({ hasError: false, error: undefined })
+      }, 100)
+      
+      return
     }
   }
 

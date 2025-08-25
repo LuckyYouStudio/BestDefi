@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css'
 import type { AppProps } from 'next/app'
 import ErrorBoundary from '../components/ErrorBoundary'
+import ExtensionWarning from '../components/ExtensionWarning'
+import '../lib/extensionHandler' // 全局扩展冲突处理
 import {
   getDefaultWallets,
   RainbowKitProvider,
@@ -32,6 +34,7 @@ const wagmiConfig = createConfig({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary>
+      <ExtensionWarning />
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains}>
           <Component {...pageProps} />
