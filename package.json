@@ -1,0 +1,23 @@
+{
+  "name": "defi-yield-aggregator-mvp",
+  "version": "1.0.0",
+  "description": "DeFi Yield Aggregator MVP - Aave V3 Strategy",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:goerli": "hardhat run scripts/deploy.js --network goerli",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "verify": "hardhat verify --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.17.2"
+  },
+  "dependencies": {
+    "@aave/core-v3": "^1.19.3",
+    "ethers": "^6.7.1"
+  }
+}

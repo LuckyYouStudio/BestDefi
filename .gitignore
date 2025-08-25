@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+keeper/vendor/
+
+# Environment files (IMPORTANT: Contains private keys)
+.env
+.env.local
+.env.production
+.env.development
+frontend/.env.local
+
+# Hardhat
+cache/
+artifacts/
+coverage/
+coverage.json
+typechain/
+typechain-types/
+*.log
+
+# Go binaries
+keeper/keeper
+keeper/main
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build outputs
+frontend/dist/
+frontend/.next/
+frontend/build/
+frontend/out/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Deployment info (contains addresses but safe to include)
+# deployment.json
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache

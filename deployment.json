@@ -1,0 +1,10 @@
+{
+  "network": "sepolia",
+  "contracts": {
+    "vault": "0xb6494e339FD35abA0E5845a2dc0B47D14c68993d",
+    "strategy": "0x8CD1cF363C871B5335C9Fd7BEeade205A6c467c7",
+    "token": "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8",
+    "aToken": "0x16dA4541aD1807f4443d92D26044C1147406EB80"
+  },
+  "timestamp": "2025-08-25T07:39:01.931Z"
+}
