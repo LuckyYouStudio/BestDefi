@@ -108,7 +108,8 @@ func (k *Keeper) checkAndHarvest() {
 
 	vaultABI := `[{"name":"harvest","type":"function","inputs":[],"outputs":[]},{"name":"balance","type":"function","inputs":[],"outputs":[{"type":"uint256"}],"stateMutability":"view"},{"name":"lastHarvest","type":"function","inputs":[],"outputs":[{"type":"uint256"}],"stateMutability":"view"}]`
 	
-	parsedABI, err := bind.MetaData{ABI: vaultABI}.GetAbi()
+	metadata := &bind.MetaData{ABI: vaultABI}
+	parsedABI, err := metadata.GetAbi()
 	if err != nil {
 		k.logger.Errorf("Failed to parse ABI: %v", err)
 		return

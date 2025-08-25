@@ -1,17 +1,17 @@
 import '../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css'
 import type { AppProps } from 'next/app'
+import ErrorBoundary from '../components/ErrorBoundary'
 import {
   getDefaultWallets,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { goerli } from 'wagmi/chains'
-import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { sepolia } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 
 const { chains, publicClient } = configureChains(
-  [goerli],
+  [sepolia],
   [
     publicProvider()
   ]
@@ -19,7 +19,7 @@ const { chains, publicClient } = configureChains(
 
 const { connectors } = getDefaultWallets({
   appName: 'DeFi Yield Aggregator',
-  projectId: 'YOUR_PROJECT_ID',
+  projectId: '2f2d3c4e5f6a7b8c9d0e1f2a3b4c5d6e',
   chains
 })
 
@@ -31,11 +31,13 @@ const wagmiConfig = createConfig({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ErrorBoundary>
+      <WagmiConfig config={wagmiConfig}>
+        <RainbowKitProvider chains={chains}>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ErrorBoundary>
   )
 }
 
